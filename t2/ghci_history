@@ -1,0 +1,101 @@
+main
+main
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+main
+:load 01_04_lista4.hs
+:load 01_04_lista4.hs
+main 03144386022
+main
+:load 01_04_lista4.hs
+:load 27_03_lista3.hs
+dotProd [1,2,3,4] [1,2,3,4]
+dotProd [3,0,3,4] [1,2,3,4]
+dotProd [3,3,3,3] [2,2,2,2]
+dotProd' [3,3,3,3] [2,2,2,2]
+:load 27_03_lista3.hs
+dotProd [3,3,3,3] [1,1,1,1]
+dotProd [3,3,3,3] [,1,1,1]
+dotProd' [3,3,3,3] [2,2,2,2]
+dotProd [3,3,3,3] [2,2,2,2]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:q
+:load 27_03_lista3.hs
+dotProd [3,3,3,3] [2,2,2,2]
+dotProd [1,1,1,1] [2,2,2,2]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+selectSnd [(1,2),(2,3),(5,7),(11,1000)]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+selectExpr [1..100]
+sumOdds [1,2,3,4,5,6]
+:load 27_03_lista3.hs
+trSpaces "fabio araujo pedroso"
+:load 27_03_lista3.hs
+trSpaces "fabio araujo pedroso"
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+calcExpr [1.0..5.0]
+calcExpr [1.0..10.0]
+countShorts [1.0..10.0]
+countShorts [1..10]
+:load 27_03_lista3.hs
+countShorts ["fabio","miguel","guilherme","john"]
+:load 27_03_lista3.hs
+countShorts ["fabio","miguel","guilherme","john"]
+countShort ["fabio","miguel","guilherme","john"]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+countShort ["fabio","miguel","guilherme","john"]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+selectExpr [1..100]
+:load 27_03_lista3.hs
+selectExpr [1..100]
+:load 27_03_lista3.hs
+sumOdds [1,2,3,4,5,6,8]
+sumOdds [1,2,3,4,5,6,7]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+sumOdds [1,2,3,4,5,6,7]
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+:load 27_03_lista3.hs
+selectgt5 [5,6,7,1]
+:load 27_03_lista3.hs
+addSuffix "gui" ["fabio","eu","sla"]
+:load 27_03_lista3.hs
+applyExpr [1,2,3,4,5]
+applyExpr
+---before t2 ---
