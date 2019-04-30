@@ -19,3 +19,11 @@ inc99(L1,L2) :-
   inc99(T,L4),
   L2 = [L3|L4]
   .
+
+incN([],[],N).
+incN(L1,L2,N) :-
+  L1 = [H|T],
+  L3 is H + N,
+  incN(T,L4,N),
+  L2 = [L3|L4]
+  .
