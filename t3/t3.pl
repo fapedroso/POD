@@ -2,6 +2,7 @@ odd(N) :-
   C = mod(N,2),
   C =:= 0
   .
+
 tamLis([],0).
 tamLis([H|T],N) :-
   tamLis(T,N1),
@@ -34,4 +35,19 @@ comment(L1,L2) :-
   string_concat("%%",H,L3),
   comment(T,L4),
   L2 = [L3|L4]
+  .
+
+onlyEven([],[]).
+onlyEven(L1,L2) :-
+  L1 = [H|T],
+  not(odd(H)),
+  onlyEven(T,L3),
+  L2 = L3
+  .
+
+onlyEven(L1,L2) :-
+  L1 = [H|T],
+  odd(H),
+  onlyEven(T,L3),
+  L2 = [H|L3]
   .
