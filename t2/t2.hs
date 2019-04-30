@@ -10,11 +10,14 @@ type Circle    = (Point,Float)
 -- Paletas
 -------------------------------------------------------------------------------
 
---rgbPalette :: Int -> [(Int,Int,Int)]
---rgbPalette n = take n $ cycle [(255,0,0),(0,255,0),(0,0,255)]
+rgbPalette :: Int -> [(Int,Int,Int)]
+rgbPalette n = take n $ cycle [(255,0,0),(0,255,0),(0,0,255)]
 
-rgbPalette :: Int -> Int -> [(Int,Int,Int)]
-rgbPalette l c = [if (i `mod` 3) == 0 then (60+(j+(i*c))*5,0,0) else if (i `mod` 3) == 1 then (0,60+(j+(i*c))*5,0) else (0,0,60+(j+(i*c))*5) | i <- [0..l-1], j <- [0..c-1]]
+greenPalette :: Int -> [(Int,Int,Int)]
+greenPalette n = [(0,80+i*10,0) | i <- [0..n]]
+
+triCPalette :: Int -> Int -> [(Int,Int,Int)]
+triCPalette l c = [if (i `mod` 3) == 0 then (60+(j+(i*c))*5,0,0) else if (i `mod` 3) == 1 then (0,60+(j+(i*c))*5,0) else (0,0,60+(j+(i*c))*5) | i <- [0..l-1], j <- [0..c-1]]
 
 -------------------------------------------------------------------------------
 -- Geração de retângulos em suas posições
@@ -25,10 +28,16 @@ genRectsInLines l c = [((mx*(w+gap),m*(h+gap)),w,h) | m <- [0..fromIntegral (l-1
   where (w,h) = (50,50)
         gap = 10
 
+gemPointsInCircle :: Int -> Float -> Float -> [Circle]
+gemPointsInCircle n r1 r2 = [(((r1*cos((k*2.0*pi)/ fromIntegral n))+160.0,(r1*sin((k*2.0*pi)/ fromIntegral n))+160.0),r2) | k <- [0..fromIntegral (n-1)]]
 
 -------------------------------------------------------------------------------
 -- Strings SVG
 -------------------------------------------------------------------------------
+
+svgCircle :: Circle -> String -> String
+svgCircle ((x,y),r) style =
+  printf "<circle cx='%.3f' cy='%.3f' r='%.2f' style='%s' />\n" x y r style
 
 -- Gera string representando retângulo SVG 
 -- dadas coordenadas e dimensoes do retângulo e uma string com atributos de estilo
@@ -60,6 +69,13 @@ svgElements func elements styles = concat $ zipWith func elements styles
 
 main :: IO ()
 main = do
+  writeFile "case2.svg" $ svgstrs
+  where svgstrs = svgBegin w h ++ svgfigs ++ svgEnd
+        svgfigs = svgElements svgCircle circles (map svgStyle palette)
+        circles = gemPointsInCircle ncircles 125 35 
+        palette = rgbPalette ncircles
+        ncircles = 11
+        (w,h) = (1500,500)
   writeFile "case1.svg" $ svgstrs
   where svgstrs = svgBegin w h ++ svgfigs ++ svgEnd
         svgfigs = svgElements svgRect rects (map svgStyle palette)
@@ -68,4 +84,4 @@ main = do
         nrects = lines * columns
         lines = 7
         columns = 6
-        (w,h) = (1500,500) -- width,height da imagem SVG
+        (w,h) = (1500,500)
