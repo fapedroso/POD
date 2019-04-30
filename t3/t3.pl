@@ -27,3 +27,11 @@ incN(L1,L2,N) :-
   incN(T,L4,N),
   L2 = [L3|L4]
   .
+
+comment([],[]).
+comment(L1,L2) :-
+  L1 = [H|T],
+  string_concat("%%",H,L3),
+  comment(T,L4),
+  L2 = [L3|L4]
+  .
