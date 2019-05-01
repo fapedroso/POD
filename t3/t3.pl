@@ -111,16 +111,16 @@ zipmult(L1,L2,L3) :-
   L3 = [H|T]
   .
 
-sla(Ni,Nf,L) :-
+pots_aux(Ni,Nf,L) :-
   Ni > Nf,
   L = []
   .
-sla(Ni,Nf,L) :-
+pots_aux(Ni,Nf,L) :-
   Ni =< Nf,
   Nis is Ni-1,
   pot(2,Nis,H),
   M is Ni+1,
-  sla(M,Nf,T),
+  pots_aux(M,Nf,T),
   L = [H|T]
   .
 
@@ -128,6 +128,6 @@ potencias(0,L) :-
   L = []
   .
 potencias(N,L) :- 
-  sla(1,N,L)
+  pots_aux(1,N,L)
   .
 
