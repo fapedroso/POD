@@ -88,4 +88,25 @@ potN0(N,L) :-
   potN0(Ns,T)
   .
 
-
+zipmult([],[],L3) :-
+  L3 = []
+  .
+zipmult(L1,[],L3) :-
+  L1 = [H1|T1],
+  zipmult(T1,[],T),
+  H is H1*1,
+  L3 = [H|T]
+  .
+zipmult([],L2,L3) :-
+  L2 = [H2|T2],
+  zipmult([],T2,T),
+  H is 1*H2,
+  L3 = [H|T]
+  .
+zipmult(L1,L2,L3) :-
+  L1 = [H1|T1],
+  L2 = [H2|T2],
+  zipmult(T1,T2,T),
+  H is H1*H2,
+  L3 = [H|T]
+  .
