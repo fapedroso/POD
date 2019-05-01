@@ -131,3 +131,26 @@ potencias(N,L) :-
   pots_aux(1,N,L)
   .
 
+recursiveDivision(Divisor,Divident,Quotient) :-
+  Divisor > Divident,
+  Quotient = 0
+  .
+recursiveDivision(Divisor,Divident,Quotient) :-
+  Divisor =< Divident,
+  DividentS is Divident - Divisor,
+  recursiveDivision(Divisor,DividentS,QuotientS),
+  Quotient is QuotientS + 1
+  .
+  
+cedulas(V,[],L2) :-
+  L2 = []
+  .
+cedulas(V,L1,L2) :- 
+  L1 = [H1|T1],
+  L2 = [H2|T2],
+  recursiveDivision(H1,V,Q),
+  H2 is Q,
+  R is V-H1*Q, 
+  cedulas(R,T1,T2)
+  .
+  
