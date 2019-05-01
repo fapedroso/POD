@@ -51,3 +51,12 @@ onlyEven(L1,L2) :-
   onlyEven(T,L3),
   L2 = [H|L3]
   .
+
+countdown(1,[1]).
+countdown(N,L) :-
+  L = [N|T],
+  Ns is N-1,
+  countdown(Ns,T)
+  .
+
+
