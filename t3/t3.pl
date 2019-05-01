@@ -44,7 +44,6 @@ onlyEven(L1,L2) :-
   onlyEven(T,L3),
   L2 = L3
   .
-
 onlyEven(L1,L2) :-
   L1 = [H|T],
   odd(H),
@@ -52,11 +51,41 @@ onlyEven(L1,L2) :-
   L2 = [H|L3]
   .
 
-countdown(1,[1]).
+countdown(0,L):-
+  L = []
+  .
 countdown(N,L) :-
   L = [N|T],
   Ns is N-1,
   countdown(Ns,T)
+  .
+
+nRandoms(0,L) :-
+  L = []
+  .
+nRandoms(N,L) :-
+  random_between(0, 99, H),
+  L = [H|T],
+  Ns is N-1,
+  nRandoms(Ns,T)
+  .
+
+pot(N,0,1).
+pot(N,M,X) :-
+  Ms is M-1,
+  pot(N,Ms,Xs),
+  X is N * Xs
+  .
+
+potN0(0,L) :-
+  pot(2,0,H),
+  L = [H]
+  .
+potN0(N,L) :-
+  pot(2,N,H),
+  L = [H|T],
+  Ns is N-1,
+  potN0(Ns,T)
   .
 
 
