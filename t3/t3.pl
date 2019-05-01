@@ -110,3 +110,24 @@ zipmult(L1,L2,L3) :-
   H is H1*H2,
   L3 = [H|T]
   .
+
+sla(Ni,Nf,L) :-
+  Ni > Nf,
+  L = []
+  .
+sla(Ni,Nf,L) :-
+  Ni =< Nf,
+  Nis is Ni-1,
+  pot(2,Nis,H),
+  M is Ni+1,
+  sla(M,Nf,T),
+  L = [H|T]
+  .
+
+potencias(0,L) :-
+  L = []
+  .
+potencias(N,L) :- 
+  sla(1,N,L)
+  .
+
