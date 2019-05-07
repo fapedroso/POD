@@ -52,8 +52,8 @@ acessoChave(X) :-
   nth0(1,L1,Ter),
   Ter = poa;
   agenda(X,L2),
-  nth0(2,L2,Qua),
-  Qua = sm,
+  nth0(0,L2,Seg),
+  Seg = sm,
   !
   .
 
